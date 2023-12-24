@@ -1,4 +1,4 @@
-import { Document, Schema, model } from "mongoose"
+import { Document, Schema, model, models } from "mongoose"
 
 export interface ICategory extends Document {
     _id: string
@@ -13,6 +13,6 @@ const categorySchema = new Schema({
     },
 })
 
-const Category = model('Category', categorySchema)
+const Category = models.Category || model<ICategory>("Category", categorySchema)
 
 export default Category

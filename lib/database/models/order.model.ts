@@ -45,6 +45,8 @@ const OrderSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
+}, {
+    timestamps: true
 })
 
 const Order = models.Order || model('Order', OrderSchema)

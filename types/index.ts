@@ -1,3 +1,5 @@
+import { Types } from "mongoose"
+
 // ====== USER PARAMS
 export type CreateUserParams = {
     clerkId: string
@@ -17,7 +19,7 @@ export type UpdateUserParams = {
 
 // ====== EVENT PARAMS
 export type CreateEventParams = {
-    userId: string
+    userId: Types.ObjectId
     event: {
         title: string
         description: string
@@ -34,7 +36,7 @@ export type CreateEventParams = {
 }
 
 export type UpdateEventParams = {
-    userId: string
+    userId: Types.ObjectId
     event: {
         _id: string
         title: string
@@ -89,6 +91,7 @@ export type Event = {
     url: string
     organizer: {
         _id: string
+        photo: string
         firstName: string
         lastName: string
     }
@@ -109,7 +112,7 @@ export type CheckoutOrderParams = {
     eventId: string
     price: string
     isFree: boolean
-    buyerId: string
+    buyerId: Types.ObjectId
 }
 
 export type CreateOrderParams = {
@@ -117,7 +120,6 @@ export type CreateOrderParams = {
     eventId: string
     buyerId: string
     totalAmount: string
-    createdAt: Date
 }
 
 export type GetOrdersByEventParams = {
