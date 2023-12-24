@@ -18,7 +18,6 @@ export default async function Home({ searchParams }: SearchParamProps) {
     category,
     limit: 6,
   });
-  console.log(JSON.stringify(events, null, 2));
 
   return (
     <>
@@ -64,7 +63,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           emptyStateSubtext="Come back later"
           collectionType="All_Events"
           limit={6}
-          page={1}
+          page={Number(events?.totalPages)}
           totalPages={events?.totalPages}
         />
       </section>

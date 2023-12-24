@@ -101,6 +101,9 @@ export async function getAllEvents({ query, limit = 6, page, category }: GetAllE
 
         const titleCondition = query ? { title: { $regex: query, $options: 'i' } } : {}
         const categoryCondition = category ? await getCategoryByName(category) : null
+
+        if (category && !categoryCondition) throw new Error('Category not found');
+
         const conditions = {
             $and: [titleCondition, categoryCondition ? { category: categoryCondition._id } : {}],
         }
