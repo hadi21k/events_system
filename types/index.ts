@@ -149,3 +149,26 @@ export type SearchParamProps = {
     params: { id: string }
     searchParams: { [key: string]: string | string[] | undefined }
 }
+
+export type Order = {
+    _id: Types.ObjectId
+    stripeId: string
+    totalAmount: string
+    event: {
+        _id: string
+        title: string
+    }
+    buyer: {
+        _id: string
+        firstName: string
+        lastName: string
+        photo: string
+    }
+    createdAt: Date
+    updatedAt: Date
+}
+
+export type Category = {
+    _id: string
+    name: string
+}
